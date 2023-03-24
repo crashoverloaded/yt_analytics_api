@@ -1,4 +1,4 @@
-import logging
+
 import logging as lg
 import os
 from datetime import datetime
@@ -19,3 +19,7 @@ lg.basicConfig(
     format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
     level=lg.INFO
 )
+
+# testing the logging file
+if __name__ == "__main__":
+    lg.info("Logging has started")

@@ -1,5 +1,6 @@
 import sys
-
+import logging as lg
+import logger
 def error_message_details(error,error_detail:sys):
     # exc_tb will give information like on which file the exception has occured and on which line exception has occured
     _,_,exc_tb = error_detail.exc_info()
@@ -24,8 +25,17 @@ def error_message_details(error,error_detail:sys):
 class CustomException(Exception):
     def __init__(self,error_message,error_detail:sys):
         # We are inheriting the error_message from SUPER CLass which is Exception class
-        super.__init__(error_message)
+        super().__init__(error_message)
         self.error_message = error_message_details(error_message , error_detail=error_detail)
 
     def __str__(self):
         return self.error_message
+
+
+# testing the exception file
+if __name__ == "__main__":
+    try:
+        a=1/0
+    except Exception as e:
+        lg.error(CustomException(e,sys))
+        raise CustomException(e,sys)
