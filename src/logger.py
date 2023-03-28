@@ -7,7 +7,7 @@ from datetime import datetime
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 
 # Path of log file
-logs_path = os.path.join(os.getcwd(),"logs")
+logs_path = os.path.join("src","logs")
 
 # Exist_ok = True is set to append the file and folder as per need  hence no need to create the structure again and again
 os.makedirs(logs_path,exist_ok=True)
@@ -20,6 +20,8 @@ lg.basicConfig(
     level=lg.INFO
 )
 
+"""
 # testing the logging file
 if __name__ == "__main__":
     lg.info("Logging has started")
+"""

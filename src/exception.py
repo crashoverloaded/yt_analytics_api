@@ -1,6 +1,5 @@
 import sys
-import logging as lg
-import logger
+from src.logger import lg
 def error_message_details(error,error_detail:sys):
     # exc_tb will give information like on which file the exception has occured and on which line exception has occured
     _,_,exc_tb = error_detail.exc_info()
@@ -31,11 +30,12 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_message
 
-
+"""
 # testing the exception file
 if __name__ == "__main__":
     try:
         a=1/0
     except Exception as e:
-        lg.error(CustomException(e,sys))
+        lg.info("Divide by zero")
         raise CustomException(e,sys)
+"""
