@@ -3,3 +3,4 @@ numpy
 requests
 -e .
 pandas
+mysql-connector-python
