@@ -36,9 +36,21 @@ class DataStoring:
                 passwd=self.storing_config.passwd
             )
             cursor = mydb.cursor()
-            cursor.execute("show databases")
+            #cursor.execute("create database youtube")
+            """
+            cursor.execute('create table youtube.sample('
+                           'videoid varchar(100), '
+                           'likes int ,'
+                           'emp_salary int(6) )')
+                           """
+            cursor.execute("use youtube")
+
+            cursor.execute("insert into youtube.sample values('SAAS',213434,30000)")
+            cursor.execute("insert into youtube.sample values('fsaf',21,431)")
+            cursor.execute("select * from youtube.sample")
             # Fetching all the queries output
-            print(cursor.fetchall())
+            for i in cursor.fetchall():
+                print(i)
         except Exception as e:
             raise CustomException(e,sys)
 
